@@ -36,7 +36,28 @@
         </div>
   </div>
 
-    {% block content %}
+ <div class='container'>
+    <table class="table">
+        <thead>
+            <tr>
+                {% for n in field_names %}
+               <th> {{ n }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr> 
+                {% for i in range(0, length) %}
+                    <td>{{ d[i] }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+ </div>
+ 
+   {% block content %}
 
     {% endblock %}
     
