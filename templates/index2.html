@@ -1,0 +1,69 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block navbar %}
+ 
+    <div class="row">
+        <div>
+            <p>Contact List</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newEntryModal">
+                New Entry
+            </button>    
+        </div> 
+    </div>
+
+{% endblock %}
+<div class="modal fade" id="newEntryModal" tabindex="-1" role="dialog" aria-labelledby="newEntryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Enter the New Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='container'>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter text..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" onclick="">Search</button>
+        </div>
+    </div>
+</div>
+
+<div class='container' id='results'>
+<table class="table">
+    <thead>
+        <tr>
+            {% for n in field_names %}
+           <th> {{ n }} </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data %}
+            <tr> 
+            {% for i in range(0, length) %}
+                <td>{{ d[i] }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>    
+</div>
+{% block content %}
+
+{% endblock %}

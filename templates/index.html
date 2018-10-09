@@ -9,11 +9,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">   
-        <p>Contact List</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newEntryModal">
-        New Entry
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+        <div class="row">
+            <div class="col-9">
+                <p>Contact List</p>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newEntryModal">
+                    New Entry
+                </button>    
+            </div> 
+        </div>
     </nav>
     
     <div class="modal fade" id="newEntryModal" tabindex="-1" role="dialog" aria-labelledby="newEntryModalTitle" aria-hidden="true">
@@ -34,9 +40,18 @@
                 </div>
             </div>
         </div>
+    </div>
+
+  <div class='container'>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter text..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" onclick="">Search</button>
+            </div>
+        </div>
   </div>
 
- <div class='container'>
+  <div class='container' id='results'>
     <table class="table">
         <thead>
             <tr>
@@ -55,8 +70,8 @@
             {% endfor %}
         </tbody>
     </table>    
- </div>
- 
+  </div>
+
    {% block content %}
 
     {% endblock %}
