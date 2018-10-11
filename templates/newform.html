@@ -1,0 +1,64 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        <button type="button" class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    <div class='container'>
+        <div class="input-group mb-3">
+            <form method="POST">
+                Name
+                <br><br>
+
+                {{ form.hidden_tag() }}
+                {{ form.fname.label }}{{ form.fname }}
+                {{ form.mname.label }}{{ form.mname }}
+                {{ form.lname.label }}{{ form.lname }}
+
+                <br><br>
+                Addresses
+                <br><br>
+
+                {{ form.haddress.label }}{{ form.haddress }}
+                {{ form.hcity.label }}{{ form.hcity }}
+                {{ form.hstate.label }}{{ form.hstate }}
+                {{ form.hzip.label }}{{ form.hzip }}
+                <br>
+                {{ form.waddress.label }}{{ form.waddress }}
+                {{ form.wcity.label }}{{ form.wcity }}
+                {{ form.wstate.label }}{{ form.wstate }}
+                {{ form.wzip.label }}{{ form.wzip }}
+
+                <br><br>
+                Phone Numbers
+                <br><br>
+
+                {{ form.cnum.label }}{{ form.cnum }}
+                {{ form.careacode.label }}{{ form.careacode }}
+                <br>
+                {{ form.hnum.label }}{{ form.hnum }}
+                {{ form.hareacode.label }}{{ form.hareacode }}
+                <br>
+                {{ form.wnum.label }}{{ form.wnum }}
+                {{ form.wareacode.label }}{{ form.wareacode }}
+                
+                <br><br>
+                Important Dates
+                <br><br>
+
+                {{ form.dtype.label }}{{ form.dtype }}
+                {{ form.date.label }}{{ form.date }}
+
+                <br><br>
+                {{ form.submit() }}
+            </form>
+        </div>
+  </div>
+{% endblock %}
