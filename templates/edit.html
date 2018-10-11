@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div class='container' id='results'>
+        <table class="table">
+            <thead>
+                <tr>
+                    {% for n in field_names %}
+                   <th> {{ n }} </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                    <tr> 
+                    {% for i in range(0, length) %}
+                        <td>{{ d[i] }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>    
+      </div>
+{% endblock %}
